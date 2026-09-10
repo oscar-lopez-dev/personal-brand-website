@@ -15,10 +15,12 @@ export interface TranslationDictionary {
   };
   hero: {
     badge: string;
+    name: string;
     titleLine1: string;
     titleLine2: string;
     description: string;
     ctaProjects: string;
     ctaContact: string;
+    avatarAlt: string;
   };
 }

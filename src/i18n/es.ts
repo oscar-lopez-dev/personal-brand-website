@@ -14,12 +14,14 @@ export const es: TranslationDictionary = {
     toggleLanguageAria: "Cambiar idioma",
   },
   hero: {
-    badge: "Fullstack to AI Engineer",
+    badge: "Senior Fullstack Engineer → AI Engineer",
+    name: "Oscar López Martínez",
     titleLine1: "Bases enterprise robustas.",
     titleLine2: "Soluciones con IA de alto impacto.",
     description:
       "Ingeniero de software sénior con experiencia contrastada en arquitectura de backend (.NET) y ecosistema moderno (TypeScript, React, Next.js), diseñando e implementando sistemas inteligentes para directores y equipos de negocio.",
-    ctaProjects: "Explorar Casos de Estudio ↓",
-    ctaContact: "Iniciar Conversación",
+    ctaProjects: "Explorar Proyectos",
+    ctaContact: "Contactar",
+    avatarAlt: "Oscar López Martínez - Senior Fullstack Engineer → AI Engineer",
   },
 };
