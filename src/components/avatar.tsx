@@ -19,26 +19,23 @@ export function Avatar({
   statusLabel,
 }: AvatarProps) {
   const [hasError, setHasError] = useState(false);
-
-  // Normalize Next.js static asset path if "/public/avatar.jpg" is passed
-  const resolvedSrc = src?.startsWith("/public/") ? src.replace("/public", "") : src;
-  const showFallback = hasError || !resolvedSrc;
+  const showFallback = hasError || !src;
 
   return (
     <div
       data-testid="avatar-container"
-      className={`relative w-36 h-36 sm:w-44 sm:h-44 rounded-2xl p-[2px] bg-gradient-to-b from-cyan-400/60 via-purple-500/40 to-zinc-800 shadow-2xl shadow-cyan-500/10 hover:shadow-cyan-500/25 transition-all duration-500 group mx-auto ${className}`}
+      className={`relative w-36 h-36 sm:w-44 sm:h-44 rounded-2xl p-[2px] bg-gradient-to-b from-brand-accent/50 via-brand-purple/30 to-brand-border shadow-2xl shadow-cyan-500/10 hover:shadow-cyan-500/25 transition-all duration-500 group mx-auto ${className}`}
     >
       {/* Ambient background glow */}
       <div
-        className="absolute -inset-3 rounded-3xl bg-gradient-to-r from-cyan-500/25 via-purple-600/20 to-cyan-500/25 blur-xl opacity-60 group-hover:opacity-100 transition-opacity duration-500 -z-10"
+        className="absolute -inset-3 rounded-3xl bg-gradient-to-r from-brand-accent/25 via-brand-purple/20 to-brand-accent/25 blur-xl opacity-60 group-hover:opacity-100 transition-opacity duration-500 -z-10"
         aria-hidden="true"
       />
 
       {!showFallback ? (
         <div className="relative w-full h-full rounded-[14px] overflow-hidden bg-brand-surface border border-white/10">
           <Image
-            src={resolvedSrc}
+            src={src}
             alt={alt}
             width={180}
             height={180}
@@ -189,7 +186,7 @@ export function Avatar({
       {/* Floating status pill */}
       {statusLabel && (
         <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-zinc-900/95 border border-brand-border text-[10px] font-mono text-zinc-200 whitespace-nowrap shadow-lg flex items-center gap-1.5 backdrop-blur-md select-none">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" aria-hidden="true" />
           <span>{statusLabel}</span>
         </div>
       )}

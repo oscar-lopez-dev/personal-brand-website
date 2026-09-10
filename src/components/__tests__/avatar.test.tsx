@@ -12,13 +12,19 @@ describe("Avatar Component (Seam 1)", () => {
     expect(img.getAttribute("src")).toMatch(/avatar\.jpg/);
   });
 
-  it("normalizes /public/avatar.jpg to /avatar.jpg for Next.js static asset resolution", () => {
-    render(<Avatar src="/public/avatar.jpg" alt="Oscar López Martínez" />);
+  it("renders status pill alongside geometric fallback when image fails to load", () => {
+    render(
+      <Avatar
+        alt="Oscar López Martínez"
+        statusLabel="Available for AI Engineering"
+      />
+    );
 
     const img = screen.getByRole("img", { name: "Oscar López Martínez" });
-    expect(img).toBeInTheDocument();
-    expect(img.getAttribute("src")).not.toContain("/public/");
-    expect(img.getAttribute("src")).toMatch(/avatar\.jpg/);
+    fireEvent.error(img);
+
+    expect(screen.getByTestId("geometric-avatar-fallback")).toBeInTheDocument();
+    expect(screen.getByText("Available for AI Engineering")).toBeInTheDocument();
   });
 
   it("displays high-fidelity geometric fallback avatar with SVG when image fails to load", () => {

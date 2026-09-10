@@ -14,9 +14,8 @@ export function Hero() {
       className="relative max-w-5xl mx-auto px-6 pt-12 pb-20 sm:pt-16 sm:pb-24 flex flex-col items-center text-center"
     >
       {/* Avatar with Linear Executive frame and status pill */}
-      <div className="mb-8">
+      <div className="mb-10">
         <Avatar
-          src="/avatar.jpg"
           alt={t.hero.avatarAlt}
           statusLabel={t.hero.status}
           priority

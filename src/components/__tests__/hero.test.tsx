@@ -36,8 +36,9 @@ describe("Hero Component (Seam 2)", () => {
       screen.getByText(/Senior software engineer with proven backend architecture experience/i)
     ).toBeInTheDocument();
 
-    // Avatar component present
+    // Avatar component present with status pill
     expect(screen.getByRole("img", { name: /oscar lópez martínez/i })).toBeInTheDocument();
+    expect(screen.getByText("Available for AI Engineering")).toBeInTheDocument();
   });
 
   it("renders responsive dual call-to-action buttons with targets #projects and #contact", () => {
@@ -72,6 +73,9 @@ describe("Hero Component (Seam 2)", () => {
     const contactCta = screen.getByRole("link", { name: "Contactar" });
     expect(contactCta).toBeInTheDocument();
     expect(contactCta).toHaveAttribute("href", "#contact");
+
+    // Spanish status pill
+    expect(screen.getByText("Disponible para Proyectos de IA")).toBeInTheDocument();
   });
 
   it("applies responsive layout and typography classes to hero and CTA elements", () => {

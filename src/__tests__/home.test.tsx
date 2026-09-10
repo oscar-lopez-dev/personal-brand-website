@@ -89,6 +89,7 @@ describe("HomePage - Shell, Foundation & i18n Integration", () => {
     expect(screen.getByText("Robust enterprise foundations.")).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "Explore Projects" })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "Get in Touch" })).toBeInTheDocument();
+    expect(screen.getByText("Available for AI Engineering")).toBeInTheDocument();
 
     // Click language switcher
     const toggleButton = screen.getByRole("button", { name: /switch language|cambiar idioma/i });
@@ -99,10 +100,12 @@ describe("HomePage - Shell, Foundation & i18n Integration", () => {
     expect(screen.getByText("Soluciones con IA de alto impacto.")).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "Explorar Proyectos" })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "Contactar" })).toBeInTheDocument();
+    expect(screen.getByText("Disponible para Proyectos de IA")).toBeInTheDocument();
 
     // Toggle back to English
     fireEvent.click(toggleButton);
     expect(screen.getByText("Robust enterprise foundations.")).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "Explore Projects" })).toBeInTheDocument();
+    expect(screen.getByText("Available for AI Engineering")).toBeInTheDocument();
   });
 });
