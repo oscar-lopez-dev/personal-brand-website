@@ -4,7 +4,7 @@ export const en: TranslationDictionary = {
   nav: {
     projects: "Projects",
     trajectory: "Trajectory .NET & AI",
-    pillars: "Core Pillars",
+    pillars: "Pillars",
     contact: "Get in touch",
   },
   header: {

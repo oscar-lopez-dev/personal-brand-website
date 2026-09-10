@@ -88,4 +88,17 @@ describe("Header & Language Switcher (Seam 3)", () => {
     expect(screen.getByRole("link", { name: /get in touch/i })).toBeInTheDocument();
     expect(localStorage.getItem("preferred_locale")).toBe("en");
   });
+
+  it("enforces whitespace-nowrap on navigation items and brand text to prevent layout shift", () => {
+    renderHeader();
+
+    const brand = screen.getByText("Oscar López Martínez");
+    expect(brand.className).toContain("whitespace-nowrap");
+
+    const projectsLink = screen.getByRole("link", { name: /projects/i });
+    expect(projectsLink.className).toContain("whitespace-nowrap");
+
+    const switcher = screen.getByRole("button", { name: /switch language|cambiar idioma/i });
+    expect(switcher.className).toContain("whitespace-nowrap");
+  });
 });
