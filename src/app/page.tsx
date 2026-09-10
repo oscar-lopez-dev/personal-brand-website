@@ -10,6 +10,12 @@ export default function HomePage() {
       {/* Main content with Hero section */}
       <main className="flex-1 w-full">
         <Hero />
+
+        {/* Target anchor sections for smooth scroll navigation */}
+        <section id="projects" className="scroll-mt-20" aria-label="Projects" />
+        <section id="trajectory" className="scroll-mt-20" aria-label="Trajectory" />
+        <section id="pillars" className="scroll-mt-20" aria-label="Pillars" />
+        <section id="contact" className="scroll-mt-20" aria-label="Contact" />
       </main>
     </div>
   );

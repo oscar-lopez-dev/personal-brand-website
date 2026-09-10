@@ -68,6 +68,15 @@ describe("HomePage - Shell, Foundation & i18n Integration", () => {
     expect(contactBtn).toBeInTheDocument();
     expect(contactBtn).toHaveAttribute("href", "#contact");
 
+    // Target anchor sections exist in DOM for smooth scrolling
+    const projectsSection = document.getElementById("projects");
+    expect(projectsSection).toBeInTheDocument();
+    expect(projectsSection?.className).toContain("scroll-mt-20");
+
+    const contactSection = document.getElementById("contact");
+    expect(contactSection).toBeInTheDocument();
+    expect(contactSection?.className).toContain("scroll-mt-20");
+
     // Avatar component rendered
     const avatar = screen.getByRole("img", { name: /oscar lópez martínez/i });
     expect(avatar).toBeInTheDocument();

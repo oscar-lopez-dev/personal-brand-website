@@ -12,21 +12,42 @@ describe("Avatar Component (Seam 1)", () => {
     expect(img.getAttribute("src")).toMatch(/avatar\.jpg/);
   });
 
-  it("displays high-fidelity geometric fallback avatar when image fails to load", () => {
+  it("normalizes /public/avatar.jpg to /avatar.jpg for Next.js static asset resolution", () => {
+    render(<Avatar src="/public/avatar.jpg" alt="Oscar López Martínez" />);
+
+    const img = screen.getByRole("img", { name: "Oscar López Martínez" });
+    expect(img).toBeInTheDocument();
+    expect(img.getAttribute("src")).not.toContain("/public/");
+    expect(img.getAttribute("src")).toMatch(/avatar\.jpg/);
+  });
+
+  it("displays high-fidelity geometric fallback avatar with SVG when image fails to load", () => {
     render(<Avatar alt="Oscar López Martínez" />);
 
     const img = screen.getByRole("img", { name: "Oscar López Martínez" });
     fireEvent.error(img);
 
-    // Image is no longer displayed; fallback avatar container is rendered
-    expect(screen.queryByRole("img", { name: "Oscar López Martínez" })).toBeInTheDocument();
-    expect(screen.getByTestId("geometric-avatar-fallback")).toBeInTheDocument();
-    expect(screen.getByText("OL")).toBeInTheDocument();
+    // Image is no longer displayed; fallback avatar container is rendered with accessible role and SVG
+    const fallback = screen.getByTestId("geometric-avatar-fallback");
+    expect(fallback).toBeInTheDocument();
+    expect(fallback).toHaveAttribute("role", "img");
+    expect(fallback).toHaveAttribute("aria-label", "Oscar López Martínez");
+    expect(fallback.querySelector("svg")).toBeInTheDocument();
   });
 
   it("renders geometric fallback immediately when src is empty", () => {
     render(<Avatar src="" alt="Oscar López Martínez" />);
 
     expect(screen.getByTestId("geometric-avatar-fallback")).toBeInTheDocument();
+  });
+
+  it("applies responsive sizing classes to avatar container", () => {
+    render(<Avatar alt="Oscar López Martínez" />);
+
+    const container = screen.getByTestId("avatar-container");
+    expect(container.className).toContain("w-32");
+    expect(container.className).toContain("h-32");
+    expect(container.className).toContain("sm:w-40");
+    expect(container.className).toContain("sm:h-40");
   });
 });

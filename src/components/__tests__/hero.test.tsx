@@ -73,4 +73,23 @@ describe("Hero Component (Seam 2)", () => {
     expect(contactCta).toBeInTheDocument();
     expect(contactCta).toHaveAttribute("href", "#contact");
   });
+
+  it("applies responsive layout and typography classes to hero and CTA elements", () => {
+    renderHero("en");
+
+    const projectsCta = screen.getByRole("link", { name: "Explore Projects" });
+    const contactCta = screen.getByRole("link", { name: "Get in Touch" });
+
+    // Buttons adapt from full width on mobile to auto on larger screens
+    expect(projectsCta.className).toContain("w-full sm:w-auto");
+    expect(contactCta.className).toContain("w-full sm:w-auto");
+
+    // CTA container flexes vertically on mobile and horizontally on desktop
+    const ctaContainer = projectsCta.parentElement;
+    expect(ctaContainer?.className).toContain("flex-col sm:flex-row");
+
+    // Primary heading has responsive sizing
+    const heading = screen.getByRole("heading", { level: 1 });
+    expect(heading.className).toContain("text-4xl sm:text-6xl");
+  });
 });
