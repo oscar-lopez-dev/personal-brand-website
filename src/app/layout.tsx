@@ -13,7 +13,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Oscar López Martínez | Senior Fullstack & AI Engineer",
+  title: "Oscar López Martínez | Fullstack to AI Engineer",
   description:
     "Bridging robust .NET enterprise backend architectures with modern TypeScript, React, and applied AI systems.",
 };
@@ -26,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark scroll-smooth">
       <body
-        className={`${inter.variable} ${jetbrainsMono.variable} antialiased min-h-screen bg-brand-dark text-zinc-100 selection:bg-cyan-500/30 selection:text-cyan-200`}
+        className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased min-h-screen bg-brand-background text-zinc-100 selection:bg-cyan-500/30 selection:text-cyan-200`}
       >
         {children}
       </body>
