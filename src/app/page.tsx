@@ -1,5 +1,6 @@
 import { Header } from "@/components/header";
 import { Hero } from "@/components/hero";
+import { Projects } from "@/components/projects";
 
 export default function HomePage() {
   return (
@@ -7,12 +8,12 @@ export default function HomePage() {
       {/* Reactive Header with language switcher */}
       <Header />
 
-      {/* Main content with Hero section */}
+      {/* Main content with Hero and Projects sections */}
       <main className="flex-1 w-full">
         <Hero />
 
-        {/* Target anchor sections for smooth scroll navigation */}
-        <section id="projects" className="scroll-mt-20" aria-label="Projects" />
+        {/* Projects showcase section */}
+        <Projects />
         <section id="trajectory" className="scroll-mt-20" aria-label="Trajectory" />
         <section id="pillars" className="scroll-mt-20" aria-label="Pillars" />
         <section id="contact" className="scroll-mt-20" aria-label="Contact" />

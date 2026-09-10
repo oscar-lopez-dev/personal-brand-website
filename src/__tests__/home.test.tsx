@@ -108,4 +108,64 @@ describe("HomePage - Shell, Foundation & i18n Integration", () => {
     expect(screen.getByRole("link", { name: "Explore Projects" })).toBeInTheDocument();
     expect(screen.getByText("Available for AI Engineering")).toBeInTheDocument();
   });
+
+  it("renders the Projects showcase section with reference architecture cards within HomePage", () => {
+    renderHomePage();
+
+    // Section exists and has heading
+    const projectsHeading = screen.getByRole("heading", {
+      level: 2,
+      name: "Featured Reference Architectures",
+    });
+    expect(projectsHeading).toBeInTheDocument();
+
+    // Contains project titles matching spec
+    expect(
+      screen.getByText("Financial RAG Copilot")
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText("Asynchronous Document Pipeline")
+    ).toBeInTheDocument();
+
+    // Expandable technical breakdown interaction within HomePage
+    const toggleButtons = screen.getAllByRole("button", {
+      name: /\[\+\] view technical architecture breakdown/i,
+    });
+    expect(toggleButtons.length).toBeGreaterThanOrEqual(2);
+
+    // Expand first project notes
+    fireEvent.click(toggleButtons[0]);
+    expect(toggleButtons[0]).toHaveAttribute("aria-expanded", "true");
+    expect(
+      screen.getByText(/Frontend developed in Next.js 15/)
+    ).toBeInTheDocument();
+  });
+
+  it("reactively translates Projects section copy when language switcher is clicked in HomePage", () => {
+    renderHomePage();
+
+    // Initial English content in Projects
+    expect(
+      screen.getByRole("heading", { level: 2, name: "Featured Reference Architectures" })
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText("Financial RAG Copilot")
+    ).toBeInTheDocument();
+
+    // Click language switcher
+    const toggleButton = screen.getByRole("button", { name: /switch language|cambiar idioma/i });
+    fireEvent.click(toggleButton);
+
+    // Reactively translated Spanish content in Projects
+    expect(
+      screen.getByRole("heading", { level: 2, name: "Arquitecturas de Referencia Destacadas" })
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText("Copiloto RAG Financiero")
+    ).toBeInTheDocument();
+    expect(
+      screen.getAllByRole("button", { name: /\[\+\] ver desglose técnico de arquitectura/i }).length
+    ).toBeGreaterThanOrEqual(2);
+  });
 });
+

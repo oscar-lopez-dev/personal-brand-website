@@ -24,4 +24,16 @@ export interface TranslationDictionary {
     avatarAlt: string;
     status: string;
   };
+  projects: {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+    challengeLabel: string;
+    architectureLabel: string;
+    notesTitle: string;
+    viewBreakdown: string;
+    hideBreakdown: string;
+    viewGithub: string;
+    viewDemo: string;
+  };
 }

@@ -25,4 +25,16 @@ export const en: TranslationDictionary = {
     avatarAlt: "Oscar López Martínez - Senior Fullstack Engineer → AI Engineer",
     status: "Available for AI Engineering",
   },
+  projects: {
+    eyebrow: "Evidence & Track Record",
+    title: "Featured Reference Architectures",
+    subtitle: "Problem → AI Solution → Impact",
+    challengeLabel: "THE CHALLENGE",
+    architectureLabel: "TECHNICAL ARCHITECTURE",
+    notesTitle: "Implementation Notes:",
+    viewBreakdown: "[+] View technical architecture breakdown",
+    hideBreakdown: "[-] Hide technical architecture breakdown",
+    viewGithub: "View Code (GitHub)",
+    viewDemo: "Live Demo",
+  },
 };
