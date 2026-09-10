@@ -22,5 +22,6 @@ export interface TranslationDictionary {
     ctaProjects: string;
     ctaContact: string;
     avatarAlt: string;
+    status: string;
   };
 }

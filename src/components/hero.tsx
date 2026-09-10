@@ -13,9 +13,14 @@ export function Hero() {
       aria-label="Hero"
       className="relative max-w-5xl mx-auto px-6 pt-12 pb-20 sm:pt-16 sm:pb-24 flex flex-col items-center text-center"
     >
-      {/* Avatar with photo or high-fidelity geometric fallback */}
+      {/* Avatar with Linear Executive frame and status pill */}
       <div className="mb-8">
-        <Avatar alt={t.hero.avatarAlt} priority />
+        <Avatar
+          src="/avatar.jpg"
+          alt={t.hero.avatarAlt}
+          statusLabel={t.hero.status}
+          priority
+        />
       </div>
 
       {/* Canonical Role Badge */}

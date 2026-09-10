@@ -45,9 +45,20 @@ describe("Avatar Component (Seam 1)", () => {
     render(<Avatar alt="Oscar López Martínez" />);
 
     const container = screen.getByTestId("avatar-container");
-    expect(container.className).toContain("w-32");
-    expect(container.className).toContain("h-32");
-    expect(container.className).toContain("sm:w-40");
-    expect(container.className).toContain("sm:h-40");
+    expect(container.className).toContain("w-36");
+    expect(container.className).toContain("h-36");
+    expect(container.className).toContain("sm:w-44");
+    expect(container.className).toContain("sm:h-44");
+  });
+
+  it("renders floating status pill when statusLabel is provided", () => {
+    render(
+      <Avatar
+        alt="Oscar López Martínez"
+        statusLabel="Available for AI Engineering"
+      />
+    );
+
+    expect(screen.getByText("Available for AI Engineering")).toBeInTheDocument();
   });
 });

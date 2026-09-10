@@ -8,6 +8,7 @@ export interface AvatarProps {
   alt?: string;
   priority?: boolean;
   className?: string;
+  statusLabel?: string;
 }
 
 export function Avatar({
@@ -15,6 +16,7 @@ export function Avatar({
   alt = "Oscar López Martínez",
   priority = false,
   className = "",
+  statusLabel,
 }: AvatarProps) {
   const [hasError, setHasError] = useState(false);
 
@@ -25,32 +27,36 @@ export function Avatar({
   return (
     <div
       data-testid="avatar-container"
-      className={`relative w-32 h-32 sm:w-40 sm:h-40 rounded-2xl p-[1px] bg-gradient-to-b from-cyan-500/40 via-purple-500/20 to-zinc-800/40 shadow-xl shadow-cyan-500/5 ${className}`}
+      className={`relative w-36 h-36 sm:w-44 sm:h-44 rounded-2xl p-[2px] bg-gradient-to-b from-cyan-400/60 via-purple-500/40 to-zinc-800 shadow-2xl shadow-cyan-500/10 hover:shadow-cyan-500/25 transition-all duration-500 group mx-auto ${className}`}
     >
       {/* Ambient background glow */}
       <div
-        className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-cyan-500/20 via-purple-500/20 to-cyan-500/20 blur-lg opacity-50 -z-10"
+        className="absolute -inset-3 rounded-3xl bg-gradient-to-r from-cyan-500/25 via-purple-600/20 to-cyan-500/25 blur-xl opacity-60 group-hover:opacity-100 transition-opacity duration-500 -z-10"
         aria-hidden="true"
       />
 
       {!showFallback ? (
-        <Image
-          src={resolvedSrc}
-          alt={alt}
-          width={160}
-          height={160}
-          priority={priority}
-          onError={() => setHasError(true)}
-          className="w-full h-full object-cover rounded-2xl bg-brand-surface"
-        />
+        <div className="relative w-full h-full rounded-[14px] overflow-hidden bg-brand-surface border border-white/10">
+          <Image
+            src={resolvedSrc}
+            alt={alt}
+            width={180}
+            height={180}
+            priority={priority}
+            onError={() => setHasError(true)}
+            className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+          />
+          {/* Subtle inner dark vignette for seamless contrast */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-black/10 pointer-events-none" />
+        </div>
       ) : (
         <div
           data-testid="geometric-avatar-fallback"
           role="img"
           aria-label={alt}
-          className="w-full h-full rounded-2xl bg-brand-surface/90 border border-brand-border/80 overflow-hidden relative flex items-center justify-center"
+          className="w-full h-full rounded-[14px] bg-brand-surface/90 border border-brand-border/80 overflow-hidden relative flex items-center justify-center"
         >
-          {/* High-fidelity geometric SVG avatar */}
+          {/* High-fidelity geometric SVG avatar fallback */}
           <svg
             className="w-full h-full"
             viewBox="0 0 160 160"
@@ -177,6 +183,14 @@ export function Avatar({
               strokeLinecap="round"
             />
           </svg>
+        </div>
+      )}
+
+      {/* Floating status pill */}
+      {statusLabel && (
+        <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-zinc-900/95 border border-brand-border text-[10px] font-mono text-zinc-200 whitespace-nowrap shadow-lg flex items-center gap-1.5 backdrop-blur-md select-none">
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+          <span>{statusLabel}</span>
         </div>
       )}
     </div>

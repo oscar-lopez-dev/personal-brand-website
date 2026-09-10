@@ -23,5 +23,6 @@ export const en: TranslationDictionary = {
     ctaProjects: "Explore Projects",
     ctaContact: "Get in Touch",
     avatarAlt: "Oscar López Martínez - Senior Fullstack Engineer → AI Engineer",
+    status: "Available for AI Engineering",
   },
 };
