@@ -70,4 +70,17 @@ export const en: TranslationDictionary = {
     pillar3Description:
       "AI is an engineering multiplier for operational efficiency and measurable business ROI, not a speculative marketing ornament.",
   },
+  contact: {
+    eyebrow: "Direct Contact",
+    title: "Let's discuss a technical or business challenge",
+    description:
+      "Open to high-impact projects, technical advisory, and engineering leadership roles focused on applied AI and resilient systems architecture.",
+    emailButton: "Send Direct Email",
+    linkedinButton: "Connect on LinkedIn",
+    githubButton: "GitHub Profile",
+    emailAria: "Send direct email to Oscar López Martínez",
+    linkedinAria: "Connect with Oscar López Martínez on LinkedIn (opens in new tab)",
+    githubAria: "View Oscar López Martínez's GitHub profile (opens in new tab)",
+  },
 };
+

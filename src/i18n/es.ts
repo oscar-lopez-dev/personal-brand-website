@@ -70,4 +70,17 @@ export const es: TranslationDictionary = {
     pillar3Description:
       "La IA es una herramienta para multiplicar la rentabilidad y eficiencia operativa, no un adorno de marketing sin retorno de inversión.",
   },
+  contact: {
+    eyebrow: "Contacto Directo",
+    title: "¿Hablamos de un reto técnico o de negocio?",
+    description:
+      "Abierto a proyectos de impacto, consultoría técnica y roles de liderazgo en ingeniería con foco en IA y arquitecturas de sistemas resilientes.",
+    emailButton: "Enviar Email Directo",
+    linkedinButton: "Conectar en LinkedIn",
+    githubButton: "Perfil en GitHub",
+    emailAria: "Enviar email directo a Oscar López Martínez",
+    linkedinAria: "Conectar con Oscar López Martínez en LinkedIn (se abre en nueva pestaña)",
+    githubAria: "Ver perfil de GitHub de Oscar López Martínez (se abre en nueva pestaña)",
+  },
 };
+

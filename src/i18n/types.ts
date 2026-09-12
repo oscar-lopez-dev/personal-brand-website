@@ -63,4 +63,16 @@ export interface TranslationDictionary {
     pillar3Title: string;
     pillar3Description: string;
   };
+  contact: {
+    eyebrow: string;
+    title: string;
+    description: string;
+    emailButton: string;
+    linkedinButton: string;
+    githubButton: string;
+    emailAria: string;
+    linkedinAria: string;
+    githubAria: string;
+  };
 }
+

@@ -3,6 +3,7 @@ import { Hero } from "@/components/hero";
 import { Projects } from "@/components/projects";
 import { Trajectory } from "@/components/trajectory";
 import { Pillars } from "@/components/pillars";
+import { Contact } from "@/components/contact";
 
 export default function HomePage() {
   return (
@@ -23,9 +24,11 @@ export default function HomePage() {
         {/* Core pillars of value */}
         <Pillars />
 
-        {/* Contact section anchor placeholder for issue #7 */}
-        <section id="contact" className="scroll-mt-20" aria-label="Contact" />
+        {/* Direct Contact section */}
+        <Contact />
       </main>
     </div>
   );
 }
+
+

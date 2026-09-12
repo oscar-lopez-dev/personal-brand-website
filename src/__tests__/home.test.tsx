@@ -1,6 +1,8 @@
-import { render, screen, fireEvent } from "@testing-library/react";
-import { describe, it, expect, beforeEach } from "vitest";
+import { render, screen, fireEvent, within } from "@testing-library/react";
+import { describe, it, expect, beforeEach, vi } from "vitest";
 import React from "react";
+
+
 import HomePage from "@/app/page";
 import { I18nProvider } from "@/i18n/context";
 
@@ -271,5 +273,128 @@ describe("HomePage - Shell, Foundation & i18n Integration", () => {
       screen.getByRole("heading", { level: 3, name: "IA para Negocio Real" })
     ).toBeInTheDocument();
   });
+
+  it("renders Contact section with headline, mailto action, and external profile links within HomePage", () => {
+    renderHomePage();
+
+    // Section anchor exists
+    const contactSection = document.getElementById("contact");
+    expect(contactSection).toBeInTheDocument();
+    expect(contactSection?.className).toContain("scroll-mt-20");
+    expect(contactSection).toHaveAttribute("aria-labelledby", "contact-title");
+
+    const { getByRole, getByText } = within(contactSection!);
+
+    // Heading & Description
+    expect(
+      getByRole("heading", {
+        level: 2,
+        name: "Let's discuss a technical or business challenge",
+      })
+    ).toBeInTheDocument();
+    expect(
+      getByText(/Open to high-impact projects, technical advisory/i)
+    ).toBeInTheDocument();
+
+    // Direct mailto button
+    const mailButton = getByRole("link", { name: /send direct email/i });
+    expect(mailButton).toBeInTheDocument();
+    expect(mailButton).toHaveAttribute("href", "mailto:oscar.bcn.1991@gmail.com");
+
+    // LinkedIn link
+    const linkedinLink = getByRole("link", { name: /linkedin/i });
+    expect(linkedinLink).toBeInTheDocument();
+    expect(linkedinLink).toHaveAttribute(
+      "href",
+      "https://linkedin.com/in/oscarlopez1991"
+    );
+    expect(linkedinLink).toHaveAttribute("target", "_blank");
+    expect(linkedinLink).toHaveAttribute("rel", "noopener noreferrer");
+
+    // GitHub profile link
+    const githubLink = getByRole("link", { name: /github/i });
+    expect(githubLink).toBeInTheDocument();
+    expect(githubLink).toHaveAttribute(
+      "href",
+      "https://github.com/oscarlopez1991"
+    );
+    expect(githubLink).toHaveAttribute("target", "_blank");
+    expect(githubLink).toHaveAttribute("rel", "noopener noreferrer");
+  });
+
+  it("reactively translates Contact section copy when language switcher is clicked in HomePage", () => {
+    renderHomePage();
+
+    const contactSection = document.getElementById("contact");
+    expect(contactSection).toBeInTheDocument();
+
+    // English initial
+    expect(
+      within(contactSection!).getByRole("heading", {
+        level: 2,
+        name: "Let's discuss a technical or business challenge",
+      })
+    ).toBeInTheDocument();
+    expect(
+      within(contactSection!).getByRole("link", { name: /send direct email/i })
+    ).toBeInTheDocument();
+
+    // Toggle language
+    const toggleButton = screen.getByRole("button", { name: /switch language|cambiar idioma/i });
+    fireEvent.click(toggleButton);
+
+    // Spanish translation
+    expect(
+      within(contactSection!).getByRole("heading", {
+        level: 2,
+        name: "¿Hablamos de un reto técnico o de negocio?",
+      })
+    ).toBeInTheDocument();
+    expect(
+      within(contactSection!).getByRole("link", { name: /enviar email directo/i })
+    ).toBeInTheDocument();
+    expect(
+      within(contactSection!).getByText(/Abierto a proyectos de impacto, consultoría técnica/i)
+    ).toBeInTheDocument();
+  });
+
+  it("integrates all key sections with verified smooth scroll anchor targets", () => {
+    renderHomePage();
+
+    const expectedSections = ["hero", "projects", "trajectory", "pillars", "contact"];
+    for (const sectionId of expectedSections) {
+      const el = document.getElementById(sectionId);
+      expect(el, `Expected #${sectionId} to exist in DOM`).toBeInTheDocument();
+    }
+
+    // Verify header navigation targets match sections
+    const navLinks = [
+      { name: "Projects", target: "#projects" },
+      { name: "Trajectory .NET & AI", target: "#trajectory" },
+      { name: "Pillars", target: "#pillars" },
+      { name: "Get in touch", target: "#contact" },
+    ];
+
+    for (const { name, target } of navLinks) {
+      const link = screen.getByRole("link", { name });
+      expect(link).toHaveAttribute("href", target);
+    }
+  });
+
+  it("renders entire landing page with 100% integrity and absence of hydration errors", () => {
+    const errorSpy = vi.spyOn(console, "error").mockImplementation(() => {});
+
+    renderHomePage();
+
+    const hydrationErrors = errorSpy.mock.calls.filter(([msg]) =>
+      typeof msg === "string" && (msg.includes("Hydration") || msg.includes("did not match"))
+    );
+    expect(hydrationErrors).toHaveLength(0);
+    expect(errorSpy).not.toHaveBeenCalled();
+
+    errorSpy.mockRestore();
+  });
 });
+
+
 
