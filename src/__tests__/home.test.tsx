@@ -167,5 +167,109 @@ describe("HomePage - Shell, Foundation & i18n Integration", () => {
       screen.getAllByRole("button", { name: /\[\+\] ver desglose técnico de arquitectura/i }).length
     ).toBeGreaterThanOrEqual(2);
   });
+
+  it("renders Trajectory section with narrative and visual skills bridge within HomePage", () => {
+    renderHomePage();
+
+    // Section anchor exists
+    const trajectorySection = document.getElementById("trajectory");
+    expect(trajectorySection).toBeInTheDocument();
+    expect(trajectorySection?.className).toContain("scroll-mt-20");
+    expect(trajectorySection).toHaveAttribute("aria-labelledby", "trajectory-title");
+
+    // Eyebrow, title and narrative
+    expect(screen.getByText("Trajectory & Evolution")).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { level: 2, name: "The Bridge: From Enterprise Rigor to Applied AI" })
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(/My background is rooted in the \.NET \/ C# enterprise ecosystem/i)
+    ).toBeInTheDocument();
+
+    // Visual skills bridge
+    expect(screen.getByText("1. ENTERPRISE FOUNDATIONS")).toBeInTheDocument();
+    expect(screen.getByText("2. MODERN ECOSYSTEM")).toBeInTheDocument();
+    expect(screen.getByText("3. APPLIED AI ENGINEERING")).toBeInTheDocument();
+  });
+
+  it("reactively translates Trajectory section copy when language switcher is clicked in HomePage", () => {
+    renderHomePage();
+
+    // English initial
+    expect(screen.getByText("Trajectory & Evolution")).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { level: 2, name: "The Bridge: From Enterprise Rigor to Applied AI" })
+    ).toBeInTheDocument();
+
+    // Toggle language
+    const toggleButton = screen.getByRole("button", { name: /switch language|cambiar idioma/i });
+    fireEvent.click(toggleButton);
+
+    // Spanish translation
+    expect(screen.getByText("Trayectoria & Evolución")).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { level: 2, name: "El Puente: De la Solidez Enterprise a la IA" })
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(/Vengo de construir software en el ecosistema \.NET \/ C#/i)
+    ).toBeInTheDocument();
+    expect(screen.getByText("1. FUNDAMENTOS ENTERPRISE")).toBeInTheDocument();
+  });
+
+  it("renders Pillars section with 3 core pillars within HomePage", () => {
+    renderHomePage();
+
+    // Section anchor exists
+    const pillarsSection = document.getElementById("pillars");
+    expect(pillarsSection).toBeInTheDocument();
+    expect(pillarsSection?.className).toContain("scroll-mt-20");
+    expect(pillarsSection).toHaveAttribute("aria-labelledby", "pillars-title");
+
+    // Title and badges
+    expect(
+      screen.getByRole("heading", { level: 2, name: "Three Core Pillars of Value" })
+    ).toBeInTheDocument();
+    expect(screen.getByText("01")).toBeInTheDocument();
+    expect(screen.getByText("02")).toBeInTheDocument();
+    expect(screen.getByText("03")).toBeInTheDocument();
+
+    // Pillar headings
+    expect(
+      screen.getByRole("heading", { level: 3, name: "Analytical Rigor & Enterprise Foundations" })
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { level: 3, name: "Accelerated Adaptation" })
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { level: 3, name: "Pragmatic Business AI" })
+    ).toBeInTheDocument();
+  });
+
+  it("reactively translates Pillars section copy when language switcher is clicked in HomePage", () => {
+    renderHomePage();
+
+    // English initial
+    expect(
+      screen.getByRole("heading", { level: 2, name: "Three Core Pillars of Value" })
+    ).toBeInTheDocument();
+
+    // Toggle language
+    const toggleButton = screen.getByRole("button", { name: /switch language|cambiar idioma/i });
+    fireEvent.click(toggleButton);
+
+    // Spanish translation
+    expect(
+      screen.getByRole("heading", { level: 2, name: "Tres Pilares de Valor" })
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { level: 3, name: "Rigor Analítico y Bases Enterprise" })
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { level: 3, name: "Adaptación Acelerada" })
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { level: 3, name: "IA para Negocio Real" })
+    ).toBeInTheDocument();
+  });
 });
 

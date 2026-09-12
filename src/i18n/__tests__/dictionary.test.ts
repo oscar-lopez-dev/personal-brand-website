@@ -53,4 +53,24 @@ describe("i18n Dictionary Contract Integrity (Seam 1)", () => {
     expect(es.nav.pillars).toBeDefined();
     expect(es.nav.contact).toBeDefined();
   });
+
+  it("defines trajectory section translation keys", () => {
+    expect(en.trajectory).toBeDefined();
+    expect(es.trajectory).toBeDefined();
+    expect(en.trajectory.title).toBeDefined();
+    expect(es.trajectory.title).toBeDefined();
+    expect(en.trajectory.paragraph1).toBeDefined();
+    expect(es.trajectory.paragraph1).toBeDefined();
+    expect(en.trajectory.bridgeTitle1).toBeDefined();
+    expect(es.trajectory.bridgeTitle1).toBeDefined();
+  });
+
+  it("defines pillars section translation keys", () => {
+    expect(en.pillars).toBeDefined();
+    expect(es.pillars).toBeDefined();
+    expect(en.pillars.title).toBeDefined();
+    expect(es.pillars.title).toBeDefined();
+    expect(en.pillars.pillar1Title).toBeDefined();
+    expect(es.pillars.pillar1Title).toBeDefined();
+  });
 });

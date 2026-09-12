@@ -37,4 +37,37 @@ export const es: TranslationDictionary = {
     viewGithub: "Código en GitHub",
     viewDemo: "Ver Demo en vivo",
   },
+  trajectory: {
+    eyebrow: "Trayectoria & Evolución",
+    title: "El Puente: De la Solidez Enterprise a la IA",
+    paragraph1:
+      "Vengo de construir software en el ecosistema .NET / C#. Eso me dio una comprensión profunda de lo que importa cuando un sistema escala: tipos estrictos, transacciones, manejo de fallos, capas de arquitectura limpia y mantenimiento a largo plazo.",
+    paragraph2:
+      "Mi inquietud natural me llevó a incorporar el stack moderno con TypeScript, React y Next.js, fusionando esa disciplina de ingeniería backend con la velocidad y elegancia de los productos web contemporáneos.",
+    paragraph3:
+      "Hoy aplico esa misma base para construir sistemas de IA aplicados: desde agentes autónomos y recuperación semántica hasta pipelines de automatización con modelos de lenguaje integrados de forma determinista y segura.",
+    bridgeTitle1: "1. FUNDAMENTOS ENTERPRISE",
+    bridgeTech1: ".NET / C# / SQL",
+    bridgeTitle2: "2. ECOSISTEMA MODERNO",
+    bridgeTech2: "TypeScript / React / Next.js",
+    bridgeTitle3: "3. INGENIERÍA DE IA",
+    bridgeTech3: "RAG / Agents / LLM Ops",
+    bridgeNote: "→ Un perfil con criterio arquitectónico que entiende tanto la máquina como el negocio.",
+  },
+  pillars: {
+    eyebrow: "Filosofía de Trabajo",
+    title: "Tres Pilares de Valor",
+    pillar1Badge: "01",
+    pillar1Title: "Rigor Analítico y Bases Enterprise",
+    pillar1Description:
+      "Diseño pensando en casos límite, seguridad y mantenibilidad. No implemento atajos que hipotequen el producto más adelante.",
+    pillar2Badge: "02",
+    pillar2Title: "Adaptación Acelerada",
+    pillar2Description:
+      "Curiosidad insaciable y método riguroso para asimilar nuevas tecnologías e integrarlas de forma productiva desde el día uno.",
+    pillar3Badge: "03",
+    pillar3Title: "IA para Negocio Real",
+    pillar3Description:
+      "La IA es una herramienta para multiplicar la rentabilidad y eficiencia operativa, no un adorno de marketing sin retorno de inversión.",
+  },
 };
