@@ -25,7 +25,7 @@ describe("HomePage - Shell, Foundation & i18n Integration", () => {
     expect(heading).toBeInTheDocument();
     expect(heading.textContent).toContain("Oscar López Martínez");
 
-    const badges = screen.getAllByText("Fullstack to AI Engineer");
+    const badges = screen.getAllByText("Senior Fullstack to AI Engineer");
     expect(badges.length).toBeGreaterThanOrEqual(1);
   });
 
@@ -123,10 +123,10 @@ describe("HomePage - Shell, Foundation & i18n Integration", () => {
 
     // Contains project titles matching spec
     expect(
-      screen.getByText("Financial RAG Copilot")
+      screen.getByText("DevBrain — Document Intelligence Platform")
     ).toBeInTheDocument();
     expect(
-      screen.getByText("Asynchronous Document Pipeline")
+      screen.getByText("VerifyGo — AI Hackathon App")
     ).toBeInTheDocument();
 
     // Expandable technical breakdown interaction within HomePage
@@ -139,7 +139,7 @@ describe("HomePage - Shell, Foundation & i18n Integration", () => {
     fireEvent.click(toggleButtons[0]);
     expect(toggleButtons[0]).toHaveAttribute("aria-expanded", "true");
     expect(
-      screen.getByText(/Frontend developed in Next.js 15/)
+      screen.getByText(/Next.js 16\+ frontend with TypeScript/)
     ).toBeInTheDocument();
   });
 
@@ -151,7 +151,7 @@ describe("HomePage - Shell, Foundation & i18n Integration", () => {
       screen.getByRole("heading", { level: 2, name: "Featured Reference Architectures" })
     ).toBeInTheDocument();
     expect(
-      screen.getByText("Financial RAG Copilot")
+      screen.getByText("DevBrain — Document Intelligence Platform")
     ).toBeInTheDocument();
 
     // Click language switcher
@@ -163,7 +163,7 @@ describe("HomePage - Shell, Foundation & i18n Integration", () => {
       screen.getByRole("heading", { level: 2, name: "Arquitecturas de Referencia Destacadas" })
     ).toBeInTheDocument();
     expect(
-      screen.getByText("Copiloto RAG Financiero")
+      screen.getByText("DevBrain — Plataforma de Inteligencia Documental")
     ).toBeInTheDocument();
     expect(
       screen.getAllByRole("button", { name: /\[\+\] ver desglose técnico de arquitectura/i }).length
@@ -306,7 +306,7 @@ describe("HomePage - Shell, Foundation & i18n Integration", () => {
     expect(linkedinLink).toBeInTheDocument();
     expect(linkedinLink).toHaveAttribute(
       "href",
-      "https://linkedin.com/in/oscarlopez1991"
+      "https://linkedin.com/in/oscarlopezdev"
     );
     expect(linkedinLink).toHaveAttribute("target", "_blank");
     expect(linkedinLink).toHaveAttribute("rel", "noopener noreferrer");

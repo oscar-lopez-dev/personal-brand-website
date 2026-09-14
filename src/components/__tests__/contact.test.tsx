@@ -60,7 +60,7 @@ describe("Contact Component (Seam 2)", () => {
     expect(linkedinLink).toBeInTheDocument();
     expect(linkedinLink).toHaveAttribute(
       "href",
-      "https://linkedin.com/in/oscarlopez1991"
+      "https://linkedin.com/in/oscarlopezdev"
     );
     expect(linkedinLink).toHaveAttribute("target", "_blank");
     expect(linkedinLink).toHaveAttribute("rel", "noopener noreferrer");
@@ -104,7 +104,7 @@ describe("Contact Component (Seam 2)", () => {
   it("exports canonical contact and social profile constants matching spec", async () => {
     const contactModule = await import("@/components/contact");
     expect(contactModule.CONTACT_EMAIL).toBe("oscar.bcn.1991@gmail.com");
-    expect(contactModule.LINKEDIN_URL).toBe("https://linkedin.com/in/oscarlopez1991");
+    expect(contactModule.LINKEDIN_URL).toBe("https://linkedin.com/in/oscarlopezdev");
     expect(contactModule.GITHUB_URL).toBe("https://github.com/oscar-lopez-dev");
   });
 });

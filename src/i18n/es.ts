@@ -9,7 +9,7 @@ export const es: TranslationDictionary = {
   },
   header: {
     title: "Oscar López Martínez",
-    role: "Fullstack to AI Engineer",
+    role: "Senior Fullstack to AI Engineer",
     logoAria: "Oscar López Martínez - Volver al inicio",
     toggleLanguageAria: "Cambiar idioma",
   },

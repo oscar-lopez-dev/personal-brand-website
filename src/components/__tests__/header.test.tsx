@@ -27,7 +27,7 @@ describe("Header & Language Switcher (Seam 3)", () => {
 
     expect(screen.getByText("OL")).toBeInTheDocument();
     expect(screen.getByText("Oscar López Martínez")).toBeInTheDocument();
-    expect(screen.getByText("Fullstack to AI Engineer")).toBeInTheDocument();
+    expect(screen.getByText("Senior Fullstack to AI Engineer")).toBeInTheDocument();
   });
 
   it("renders navigation anchor links with English labels by default", () => {

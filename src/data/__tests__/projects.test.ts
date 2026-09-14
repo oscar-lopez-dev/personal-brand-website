@@ -15,18 +15,20 @@ describe("Engineering Projects Data Contract Integrity (Seam 2)", () => {
     expect(referenceArchitectures.length).toBeGreaterThanOrEqual(2);
   });
 
-  it("contains the two initial reference architectures: Financial RAG Copilot and Asynchronous Document Pipeline", () => {
+  it("contains the real featured engineering projects: DevBrain, VerifyGo, Modern CSS, and Enterprise .NET", () => {
     const projectIds = projects.map((p) => p.id);
-    expect(projectIds).toContain("financial-rag-copilot");
-    expect(projectIds).toContain("async-document-pipeline");
+    expect(projectIds).toContain("devbrain");
+    expect(projectIds).toContain("verifygo-web");
+    expect(projectIds).toContain("web-dev-learn-css");
+    expect(projectIds).toContain("redarbor-aspnetcore-ado");
 
-    const ragProject = projects.find((p) => p.id === "financial-rag-copilot")!;
-    expect(ragProject.title.en).toBe("Financial RAG Copilot");
-    expect(ragProject.title.es).toBe("Copiloto RAG Financiero");
+    const devbrainProject = projects.find((p) => p.id === "devbrain")!;
+    expect(devbrainProject.title.en).toContain("DevBrain");
+    expect(devbrainProject.title.es).toContain("DevBrain");
 
-    const asyncProject = projects.find((p) => p.id === "async-document-pipeline")!;
-    expect(asyncProject.title.en).toBe("Asynchronous Document Pipeline");
-    expect(asyncProject.title.es).toBe("Pipeline Asíncrono de Documentos");
+    const verifygoProject = projects.find((p) => p.id === "verifygo-web")!;
+    expect(verifygoProject.title.en).toContain("VerifyGo");
+    expect(verifygoProject.title.es).toContain("VerifyGo");
   });
 
   it("provides bilingual labels for all project types", () => {
