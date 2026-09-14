@@ -316,7 +316,7 @@ describe("HomePage - Shell, Foundation & i18n Integration", () => {
     expect(githubLink).toBeInTheDocument();
     expect(githubLink).toHaveAttribute(
       "href",
-      "https://github.com/oscarlopez1991"
+      "https://github.com/oscar-lopez-dev"
     );
     expect(githubLink).toHaveAttribute("target", "_blank");
     expect(githubLink).toHaveAttribute("rel", "noopener noreferrer");

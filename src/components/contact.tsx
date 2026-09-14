@@ -5,7 +5,7 @@ import { useTranslation } from "@/i18n/context";
 
 export const CONTACT_EMAIL = "oscar.bcn.1991@gmail.com";
 export const LINKEDIN_URL = "https://linkedin.com/in/oscarlopez1991";
-export const GITHUB_URL = "https://github.com/oscarlopez1991";
+export const GITHUB_URL = "https://github.com/oscar-lopez-dev";
 
 function ExternalLinkArrow() {
   return (
