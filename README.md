@@ -44,7 +44,7 @@
 
 ```bash
 # Clone the repository
-git clone https://github.com/oscarlopez1991/personal-brand-website.git
+git clone https://github.com/oscar-lopez-dev/personal-brand-website.git
 cd personal-brand-website
 
 # Install dependencies
