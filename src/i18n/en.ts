@@ -9,12 +9,12 @@ export const en: TranslationDictionary = {
   },
   header: {
     title: "Oscar López Martínez",
-    role: "Senior Fullstack to AI Engineer",
+    role: "Senior Full-Stack AI Engineer",
     logoAria: "Oscar López Martínez - Return to top",
     toggleLanguageAria: "Switch language",
   },
   hero: {
-    badge: "Senior Fullstack Engineer → AI Engineer",
+    badge: "Senior Full-Stack AI Engineer",
     name: "Oscar López Martínez",
     titleLine1: "Robust enterprise foundations.",
     titleLine2: "High-impact AI solutions.",
@@ -22,7 +22,7 @@ export const en: TranslationDictionary = {
       "Senior software engineer with proven backend architecture experience (.NET) and modern ecosystem proficiency (TypeScript, React, Next.js), designing and implementing intelligent systems for business leaders and technical teams.",
     ctaProjects: "Explore Projects",
     ctaContact: "Get in Touch",
-    avatarAlt: "Oscar López Martínez - Senior Fullstack Engineer → AI Engineer",
+    avatarAlt: "Oscar López Martínez - Senior Full-Stack AI Engineer",
     status: "Available for AI Engineering",
   },
   projects: {

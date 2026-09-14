@@ -153,7 +153,6 @@ describe("Projects Component - UI & Interaction Contract (Seam 1)", () => {
     // Localized project type badges in Spanish
     expect(screen.getAllByText("Arquitectura de Referencia").length).toBeGreaterThanOrEqual(1);
     expect(screen.getAllByText("PoC de Sistema").length).toBeGreaterThanOrEqual(1);
-    expect(screen.getAllByText("Herramienta Open Source").length).toBeGreaterThanOrEqual(1);
 
     // Spanish toggle button text
     const esToggleButtons = screen.getAllByRole("button", {

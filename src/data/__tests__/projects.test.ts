@@ -15,12 +15,12 @@ describe("Engineering Projects Data Contract Integrity (Seam 2)", () => {
     expect(referenceArchitectures.length).toBeGreaterThanOrEqual(2);
   });
 
-  it("contains the real featured engineering projects: DevBrain, VerifyGo, Modern CSS, and Enterprise .NET", () => {
+  it("contains the real featured engineering projects: DevBrain, VerifyGo, and Enterprise .NET", () => {
     const projectIds = projects.map((p) => p.id);
     expect(projectIds).toContain("devbrain");
     expect(projectIds).toContain("verifygo-web");
-    expect(projectIds).toContain("web-dev-learn-css");
     expect(projectIds).toContain("redarbor-aspnetcore-ado");
+    expect(projectIds).not.toContain("web-dev-learn-css");
 
     const devbrainProject = projects.find((p) => p.id === "devbrain")!;
     expect(devbrainProject.title.en).toContain("DevBrain");
@@ -35,7 +35,6 @@ describe("Engineering Projects Data Contract Integrity (Seam 2)", () => {
     const validTypes: ProjectType[] = [
       "Reference Architecture",
       "System PoC",
-      "Open Source Tool",
     ];
 
     for (const type of validTypes) {
@@ -52,7 +51,6 @@ describe("Engineering Projects Data Contract Integrity (Seam 2)", () => {
     const validTypes: ProjectType[] = [
       "Reference Architecture",
       "System PoC",
-      "Open Source Tool",
     ];
 
     for (const project of projects) {

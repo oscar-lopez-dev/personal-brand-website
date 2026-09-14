@@ -25,7 +25,7 @@ describe("Hero Component (Seam 2)", () => {
     expect(heading).toBeInTheDocument();
 
     // Canonical role badge
-    expect(screen.getByText("Senior Fullstack Engineer → AI Engineer")).toBeInTheDocument();
+    expect(screen.getByText("Senior Full-Stack AI Engineer")).toBeInTheDocument();
 
     // Positioning headline
     expect(screen.getByText("Robust enterprise foundations.")).toBeInTheDocument();

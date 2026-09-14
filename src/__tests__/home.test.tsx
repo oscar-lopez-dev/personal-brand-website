@@ -25,7 +25,7 @@ describe("HomePage - Shell, Foundation & i18n Integration", () => {
     expect(heading).toBeInTheDocument();
     expect(heading.textContent).toContain("Oscar López Martínez");
 
-    const badges = screen.getAllByText("Senior Fullstack to AI Engineer");
+    const badges = screen.getAllByText("Senior Full-Stack AI Engineer");
     expect(badges.length).toBeGreaterThanOrEqual(1);
   });
 
@@ -54,8 +54,8 @@ describe("HomePage - Shell, Foundation & i18n Integration", () => {
   it("renders Hero section within HomePage with positioning, CTA targets, and avatar", () => {
     renderHomePage();
 
-    // Role badge
-    expect(screen.getByText("Senior Fullstack Engineer → AI Engineer")).toBeInTheDocument();
+    // Role badge (also appears in header)
+    expect(screen.getAllByText("Senior Full-Stack AI Engineer").length).toBeGreaterThanOrEqual(1);
 
     // Positioning headline
     expect(screen.getByText("Robust enterprise foundations.")).toBeInTheDocument();

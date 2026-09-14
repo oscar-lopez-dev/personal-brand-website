@@ -13,9 +13,9 @@ const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
 });
 
-const SITE_TITLE = "Oscar López Martínez | Senior Fullstack to AI Engineer";
+const SITE_TITLE = "Oscar López Martínez | Senior Full-Stack AI Engineer";
 const SITE_DESCRIPTION =
-  "Bridging robust .NET enterprise backend architectures with modern TypeScript, React, and applied AI systems.";
+  "I build production-grade web applications and AI-powered systems, combining full-stack delivery, backend expertise, and pragmatic software architecture.";
 const SITE_URL = "https://oscarlopez.dev";
 
 export const metadata: Metadata = {
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
         url: "/avatar.jpg",
         width: 1024,
         height: 1024,
-        alt: "Oscar López Martínez - Senior Fullstack to AI Engineer",
+        alt: "Oscar López Martínez - Senior Full-Stack AI Engineer",
       },
     ],
   },

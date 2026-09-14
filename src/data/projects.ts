@@ -1,17 +1,15 @@
 import type { Locale } from "@/i18n/types";
 
-export type ProjectType = "Reference Architecture" | "System PoC" | "Open Source Tool";
+export type ProjectType = "Reference Architecture" | "System PoC";
 
 export const PROJECT_TYPE_LABELS: Record<Locale, Record<ProjectType, string>> = {
   en: {
     "Reference Architecture": "Reference Architecture",
     "System PoC": "System PoC",
-    "Open Source Tool": "Open Source Tool",
   },
   es: {
     "Reference Architecture": "Arquitectura de Referencia",
     "System PoC": "PoC de Sistema",
-    "Open Source Tool": "Herramienta Open Source",
   },
 };
 
@@ -117,49 +115,6 @@ export const projects: EngineeringProject[] = [
     ],
     githubUrl: "https://github.com/oscar-lopez-dev/verifygo-web",
     demoUrl: "https://ai.studio/apps/aebeffc0-f5f6-4159-9b79-db261dd6579d",
-  },
-  {
-    id: "web-dev-learn-css",
-    type: "Open Source Tool",
-    category: {
-      en: "Frontend Architecture & Web Standards",
-      es: "Arquitectura Frontend & Estándares Web",
-    },
-    title: {
-      en: "Modern CSS Layout Architecture",
-      es: "Arquitectura de Layouts en CSS Moderno",
-    },
-    industryProblem: {
-      en: "Modern web applications frequently suffer from bloated CSS frameworks, brittle breakpoints, and layout shifts due to inadequate adherence to native web standards.",
-      es: "Las aplicaciones web modernas a menudo sufren de frameworks CSS sobrecargados, breakpoints frágiles y layout shifts por no aprovechar los estándares web nativos.",
-    },
-    architectureDetails: {
-      en: "Living interactive reference catalog and deliberate-practice repository demonstrating native modern CSS layout architecture, Container Queries, and CSS Grid.",
-      es: "Catálogo interactivo vivo y repositorio de práctica deliberada que demuestra arquitecturas de layout con CSS moderno nativo, Container Queries y CSS Grid.",
-    },
-    implementationNotes: {
-      en: [
-        "Pure native web standards without runtime framework overhead.",
-        "Extensive deliberate-practice modules covering modern responsive primitives.",
-        "Automated CI/CD deployment pipeline via GitHub Pages and GitHub Actions.",
-        "Test-driven verification ensuring zero CSS layout regressions across viewports.",
-      ],
-      es: [
-        "Estándares web nativos puros sin sobrecarga de frameworks en tiempo de ejecución.",
-        "Módulos extensivos de práctica deliberada cubriendo primitivas modernas responsivas.",
-        "Pipeline automatizado de CI/CD con despliegue en GitHub Pages y GitHub Actions.",
-        "Verificación orientada a pruebas garantizando cero regresiones de layout entre pantallas.",
-      ],
-    },
-    stack: [
-      "HTML5",
-      "Modern CSS",
-      "Container Queries",
-      "CSS Grid",
-      "GitHub Pages",
-    ],
-    githubUrl: "https://github.com/oscar-lopez-dev/web-dev-learn-css",
-    demoUrl: "https://oscar-lopez-dev.github.io/web-dev-learn-css/",
   },
   {
     id: "redarbor-aspnetcore-ado",

@@ -12,7 +12,7 @@ _Avoid_: Portfolio superficial, tutorial copiado, métricas inventadas
 Perfil profesional (fundador, CTO, directivo) que evalúa capacidades técnicas para contratación o asignación de proyectos en entornos de negocio.
 _Avoid_: Reclutador junior, visitante casual
 
-**Fullstack to AI Engineer**:
+**Senior Full-Stack AI Engineer**:
 Posicionamiento profesional que combina bases sólidas en ingeniería backend enterprise (.NET) con adopción de TypeScript, frontend moderno e integración de inteligencia artificial aplicada.
 _Avoid_: Desarrollador junior, generalista sin criterio, especialista aislado
 

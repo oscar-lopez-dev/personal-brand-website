@@ -9,12 +9,12 @@ describe("RootLayout Metadata & SEO (Seam 3)", () => {
         ? metadata.title
         : (metadata.title as any)?.default;
     expect(title).toContain("Oscar López Martínez");
-    expect(title).toContain("Fullstack to AI Engineer");
+    expect(title).toContain("Full-Stack AI Engineer");
 
     expect(metadata.description).toBeDefined();
-    expect(metadata.description).toContain(".NET");
-    expect(metadata.description).toContain("TypeScript");
-    expect(metadata.description).toContain("AI");
+    expect(metadata.description).toContain("production-grade");
+    expect(metadata.description).toContain("AI-powered");
+    expect(metadata.description).toContain("full-stack");
   });
 
   it("configures OpenGraph metadata with required social sharing properties", () => {
